@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(270deg, #87CEEB,   /* sky blue */
+  #FFD700,   /* sunshine yellow */
+  #FF8C00,   /* sunset orange */
+  #708090,   /* cloudy gray */
+  #1E90FF,   /* rain blue */
+  #4B0082,   /* twilight indigo */
+  #87CEEB );
+  background-size: 600% 600%;
+  animation: bodyGradientMove 20s ease infinite;
+  overflow-x: hidden;
+}
+
+/* Optional: if you want a frosted transparent overlay above everything */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05); /* light transparent white layer */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
+}
+@keyframes bodyGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.card {
+
+  width: 90%;
+  max-width: 470px;
+  background: transparent; /* fully transparent */
+  border-radius: 20px;
+  padding: 40px 35px;
+  color: #fff;
+  text-align: center;
+  margin: 30px auto;
+  position: relative;
+  z-index: 1;
+border: 3px solid rgba(255, 255, 255, 0.2);
+  /* Frosted Glass Blur */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  overflow: hidden;
+
+
+}
+
+
+
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.search input {
+  flex: 1;
+  background: #ebfffc;
+  border: none;
+  outline: none;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  margin-right: 16px;
+  font-size: 18px;
+  color: #555;
+}
+
+.search button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: #ebfffc;
+  cursor: pointer;
+}
+
+.search button img {
+  width: 16px;
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: 30px;
+}
+
+.weather h1 {
+  font-size: 80px;
+  font-weight: 500;
+}
+
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidity,
+.wind {
+  font-size: 28px;
+  margin-top: -6px;
+}
+
+.weather {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.weather.show {
+  display: block;
+  opacity: 1;
+}
+
+.error {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
